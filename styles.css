@@ -1,0 +1,75 @@
+#conteinerDiv {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  /*GRID em 2 colunas a primeira ocupara 1/4 e a segunda 3/4*/
+  grid-template-rows: auto 1fr auto;
+  /*GRID em 3 linhas a primeira e a utima vão se ajustar automaticamente conforme os elemementos internos precisarem, e a linha central terá o restante do espaço */
+  grid-template-areas:
+    "header header"
+    "nav main"
+    "footer footer";
+  grid-gap: 1em;
+}
+
+.cabecalhoDiv {
+  display: flex;
+  /*Organiza os elemento (Logo - Busca - Carinho/Login)*/
+  flex-direction: row;
+  justify-content: space-around;
+  /*Espaçamento entre os elementos */
+  grid-area: header;
+  /*Area que o cabeçalho ocupa e no container pai*/
+}
+
+.navegacaoDiv {
+  display: flex;
+  /*Organiza a elementos da barra latera (Lista Caregorias - Outros elementos)*/
+  flex-direction: column;
+  grid-area: nav;
+  /*Area que o cabeçalho ocupa e no container pai*/
+}
+
+.mainDiv {
+  display: grid;
+  /*Organiza a lista de card de produtos em Grid*/
+  grid-area: main;
+  /*Area que o cabeçalho ocupa e no container pai*/
+}
+
+.rodapeDiv {
+  height: 80px;
+  grid-area: footer;
+}
+
+.logoDiv img {
+  height: 100px;
+  width: auto;
+}
+
+.buscaDiv {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buscaInput {
+  height: 30%;
+  width: 90%;
+}
+
+.acoesDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnGeral {
+  width: 40px;
+  height: 40px;
+}
+
+.visualizarBorda {
+  border: 2px solid red;
+  /*Só para ajudar a visualizar*/
+}
