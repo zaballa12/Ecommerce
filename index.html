@@ -7,7 +7,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <script defer src="scripts.js"></script>
 </head>
 
 <body>
@@ -32,7 +32,115 @@
       </div>
     </header>
     <nav class="navegacaoDiv visualizarBorda">
-      nav</nav>
+      <dl class="filtros"> <!-- Description List usado para agrupar pares de termo dt + descrição dd.-->
+        <div>
+          <dt> <!-- Description Term, hidden para começar fechado.-->
+            <button>Marca</button>
+          <dd hidden> <!--Description Details.-->
+            <section class="opcoes">
+              <label>
+                <!-- Usado para agrupar o input + span texto de descrição, usuário pode clicar sobre o texto “Adidas”, que o checkbox alterna.-->
+                <input type="checkbox" value="adidas">
+                <span>Adidas</span>
+              </label>
+              <label>
+                <input type="checkbox" value="puma">
+                <span>Puma</span>
+              </label>
+              <label>
+                <input type="checkbox" value="reebok">
+                <span>Reebok</span>
+              </label>
+            </section>
+          </dd>
+          </dt>
+          <dt>
+            <button>Genêro</button>
+          </dt>
+          <dd hidden>
+            <section class="opcoes">
+              <label>
+                <input type="checkbox" value="masculino">
+                <span>Masculino</span>
+              </label>
+              <label>
+                <input type="checkbox" value="femenino">
+                <span>Feminino</span>
+              </label>
+            </section>
+          </dd>
+          <dt>
+            <button>Categorias</button>
+          </dt>
+          <dd hidden>
+            <section class="opcoes">
+              <label>
+                <input type="checkbox" value="vestuario">
+                <span>Vestuário</span>
+              </label>
+              <label>
+                <input type="checkbox" value="calcados">
+                <span>Calçados</span>
+              </label>
+              <label>
+                <input type="checkbox" value="acessorios">
+                <span>Acessórios</span>
+              </label>
+              <label>
+                <input type="checkbox" value="equipamentos">
+                <span>Equipamentos</span>
+              </label>
+              <label>
+                <input type="checkbox" value="nutricao">
+                <span>Nutrição</span>
+              </label>
+              <label>
+                <input type="checkbox" value="meias">
+                <span>Meias</span>
+              </label>
+            </section>
+          </dd>
+          <dt>
+            <button>Idade</button>
+          </dt>
+          <dd hidden>
+            <section class="opcoes">
+              <label>
+                <input type="checkbox" value="infantil">
+                <span>Infantil</span>
+              </label>
+              <label>
+                <input type="checkbox" value="adulto">
+                <span>Adulto</span>
+              </label>
+            </section>
+          </dd>
+          <dt>
+            <button>Esporte</button>
+          </dt>
+          <dd hidden>
+            <section class="opcoes">
+              <label>
+                <input type="checkbox" value="basquete">
+                <span>Basquete</span>
+              </label>
+              <label>
+                <input type="checkbox" value="futebol">
+                <span>Futebol</span>
+              </label>
+              <label>
+                <input type="checkbox" value="skate">
+                <span>Skate</span>
+              </label>
+              <label>
+                <input type="checkbox" value="surf">
+                <span>Surf</span>
+              </label>
+            </section>
+          </dd>
+        </div>
+      </dl>
+    </nav>
     <main class="mainDiv visualizarBorda"> main</main>
     <footer class="rodapeDiv visualizarBorda"> footer</footer>
   </div>

@@ -18,7 +18,7 @@
   justify-content: space-around;
   /*Espaçamento entre os elementos */
   grid-area: header;
-  /*Area que o cabeçalho ocupa e no container pai*/
+  /*Area que o cabeçalho ocupa no container pai*/
 }
 
 .navegacaoDiv {
@@ -72,4 +72,54 @@
 .visualizarBorda {
   border: 2px solid red;
   /*Só para ajudar a visualizar*/
+}
+
+.filtros dt button {
+  position: relative;
+  /*Elemento fica no mesmo lugar que estaria, mas agora serve de referência para filhos absolute.*/
+  width: 100%;
+  /* Faz o botão ocupar toda a largura do <dt>*/
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+  /* Mostra a mãozinha ao passar o mouse (indica clicável) */
+  background-color: #eee;
+  border: none;
+  /* Remove a borda padrão do botão */
+  padding: 8px;
+  /* Dá espaço interno de 8px em todos os lados */
+}
+
+/* Indicador de seta usando ::after 
+::after é um pseudo-elemento. Ele cria uma “caixinha” virtual depois do conteúdo do botão,
+sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicionais apenas via CSS.*/
+.filtros dt button::after {
+  content: "▸";
+  /*Define o conteúdo do pseudo-elemento.*/
+  position: absolute;
+  /*Posiciona o pseudo-elemento absolutamente em relação ao botão, isso permite colocar ele no canto direito do botão, sem afetar o fluxo do texto.*/
+  right: 10px;
+  /*Move o pseudo-elemento 10px da borda direita do botão.*/
+  transition: transform 0.2s;
+  /*Adiciona uma animação suave quando a propriedade transform mudar.*/
+}
+
+/* Quando estiver ativo, rotaciona a seta para baixo */
+.filtros dt button.ativo::after {
+  transform: rotate(90deg);
+  /*Quando o botão tem a classe ativo,
+    o pseudo-elemento (::after) gira 90°*/
+}
+
+.filtros dd {
+  margin: 0;
+  /* Remove qualquer espaço externo do <dd> */
+  padding: 8px 16px;
+  /* Espaço interno: 8px em cima/baixo e 16px nas laterais */
+  background-color: #f9f9f9;
+}
+
+.opcoes {
+  display: flex;
+  flex-direction: column;
 }
