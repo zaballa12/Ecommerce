@@ -11,18 +11,18 @@
 </head>
 
 <body>
-  <div id="conteinerDiv" class="visualizarBorda">
-    <header class="cabecalhoDiv visualizarBorda">
-      <div class="logoDiv visualizarBorda">
+  <div id="conteiner" class="visualizarBorda">
+    <header class="cabecalho visualizarBorda">
+      <div class="logo visualizarBorda">
         <img src="imagens/logo.jpg" alt="Logo da Loja">
       </div>
-      <div class="buscaDiv visualizarBorda">
+      <div class="busca visualizarBorda">
         <input type="text" class="buscaInput" placeholder="Bermuda, camiseta...">
         <button class="btnGeral">
           <span class="material-icons">search</span>
         </button>
       </div>
-      <div class="acoesDiv visualizarBorda">
+      <div class="acoes visualizarBorda">
         <button class="btnGeral">
           <span class="material-icons">shopping_cart</span>
         </button>
@@ -31,7 +31,7 @@
         </button>
       </div>
     </header>
-    <nav class="navegacaoDiv visualizarBorda">
+    <nav class="navegacao visualizarBorda">
       <dl class="filtros"> <!-- Description List usado para agrupar pares de termo dt + descrição dd.-->
         <div>
           <dt> <!-- Description Term, hidden para começar fechado.-->
@@ -141,8 +141,50 @@
         </div>
       </dl>
     </nav>
-    <main class="mainDiv visualizarBorda"> main</main>
-    <footer class="rodapeDiv visualizarBorda"> footer</footer>
+    <main class="gridProd visualizarBorda">
+      <div class="cardProduto">
+        <section>
+          <img src="https://imgcentauro-a.akamaihd.net/336x229/97743002A4.jpg?v=0" alt="Camiseta Preta"
+            class="imagemProd">
+        </section>
+        <section class="avaliacaoProd">
+          ⭐⭐⭐⭐⭐
+        </section>
+        <p>Camiseta Preta Nike Masculina</p>
+        <p>Ideal para o esporte, garante conforto que necessário para alcançar performance almejada.</p>
+        <section class="listaTagProd">
+          <div class="tagProd"> <span>Cor única<span> </div>
+          <div class="tagProd"> <span>7 tamahos<span> </div>
+        </section>
+        <section class="precosProd">
+          <p>A partir de:</p>
+          <p>R$ 149,99</p>
+          <p>ou 3x de 50,00</p>
+        </section>
+      </div>
+      <div class="cardProduto">
+        <section>
+          <img src="https://imgcentauro-a.akamaihd.net/336x229/97743002A4.jpg?v=0" alt="Camiseta Preta"
+            class="imagemProd">
+        </section>
+        <section class="avaliacaoProd">
+          ⭐⭐⭐⭐⭐
+        </section>
+        <p>Camiseta Preta Nike Masculina</p>
+        <p>Ideal para o esporte, garante conforto que necessário para alcançar performance almejada.</p>
+        <section class="listaTagProd">
+          <div class="tagProd"> <span>Cor única<span> </div>
+          <div class="tagProd"> <span>7 tamahos<span> </div>
+        </section>
+        <section class="precosProd">
+          <p>A partir de:</p>
+          <p>R$ 149,99</p>
+          <p>ou 3x de 50,00</p>
+        </section>
+      </div>
+  </div>
+  </main>
+  <footer class="rodape visualizarBorda"> footer</footer>
   </div>
 </body>
 

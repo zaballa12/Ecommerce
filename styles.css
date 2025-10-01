@@ -1,4 +1,4 @@
-#conteinerDiv {
+#conteiner {
   display: grid;
   grid-template-columns: 1fr 3fr;
   /*GRID em 2 colunas a primeira ocupara 1/4 e a segunda 3/4*/
@@ -11,7 +11,7 @@
   grid-gap: 1em;
 }
 
-.cabecalhoDiv {
+.cabecalho {
   display: flex;
   /*Organiza os elemento (Logo - Busca - Carinho/Login)*/
   flex-direction: row;
@@ -21,32 +21,24 @@
   /*Area que o cabeçalho ocupa no container pai*/
 }
 
-.navegacaoDiv {
+.navegacao {
   display: flex;
   /*Organiza a elementos da barra latera (Lista Caregorias - Outros elementos)*/
   flex-direction: column;
   grid-area: nav;
-  /*Area que o cabeçalho ocupa e no container pai*/
 }
 
-.mainDiv {
-  display: grid;
-  /*Organiza a lista de card de produtos em Grid*/
-  grid-area: main;
-  /*Area que o cabeçalho ocupa e no container pai*/
-}
-
-.rodapeDiv {
+.rodape {
   height: 80px;
   grid-area: footer;
 }
 
-.logoDiv img {
+.logo img {
   height: 100px;
   width: auto;
 }
 
-.buscaDiv {
+.busca {
   width: 60%;
   display: flex;
   align-items: center;
@@ -58,7 +50,7 @@
   width: 90%;
 }
 
-.acoesDiv {
+.acoes {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,4 +114,27 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
 .opcoes {
   display: flex;
   flex-direction: column;
+}
+
+.gridProd {
+  display: grid;
+  grid-area: main;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /*Cada card ocupa no mínimo 250px. Se houver espaço,mais colunas são adicionadas automaticamente. 1fr (uma fração) faz os cards crescerem igualmente para preencher a linha.*/
+  gap: 1.5rem;
+  /*espaço entre cards*/
+  padding: 1rem;
+}
+
+.cardProduto {
+  display: flex;
+  flex-direction: column;
+  background-color: #c4c4c5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.imagemProd {
+  width: 500;
+  height: 600;
 }
