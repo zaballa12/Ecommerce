@@ -19,6 +19,92 @@
   /*Espaçamento entre os elementos */
   grid-area: header;
   /*Area que o cabeçalho ocupa no container pai*/
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  background-color: #d8d8d8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  /*Define a “camada” do elemento,
+    ou seja,
+    qual elemento fica por cima de outros. Quanto maior o valor,
+    mais na frente ele aparece. No caso,
+    o cabeçalho não sera coberto por outros elementos da página quando rola para baixo.*/
+}
+
+.logo img {
+  height: 110px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.busca {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 20px;
+  gap: 5px;
+}
+
+.buscaInput {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.buscaInput:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.btnGeral {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btnGeral:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Ícones internos (Material Icons) */
+.material-icons {
+  font-size: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .cabecalho {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .busca {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 .navegacao {
@@ -26,44 +112,17 @@
   /*Organiza a elementos da barra latera (Lista Caregorias - Outros elementos)*/
   flex-direction: column;
   grid-area: nav;
+  padding-left: 18px;
 }
 
-.rodape {
-  height: 80px;
-  grid-area: footer;
-}
-
-.logo img {
-  height: 100px;
-  width: auto;
-}
-
-.busca {
-  width: 60%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.buscaInput {
-  height: 30%;
-  width: 90%;
-}
-
-.acoes {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btnGeral {
-  width: 40px;
-  height: 40px;
-}
-
-.visualizarBorda {
-  border: 2px solid red;
-  /*Só para ajudar a visualizar*/
+.filtros {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .filtros dt button {
@@ -75,11 +134,19 @@
   font-weight: bold;
   cursor: pointer;
   /* Mostra a mãozinha ao passar o mouse (indica clicável) */
-  background-color: #eee;
+  background-color: #f5f5f5;
   border: none;
   /* Remove a borda padrão do botão */
-  padding: 8px;
-  /* Dá espaço interno de 8px em todos os lados */
+  padding: 10px 30px 10px 10px;
+  padding-right: 30px;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  color: #333;
+}
+
+.filtros dt button:hover {
+  background-color: #e0e0e0;
 }
 
 /* Indicador de seta usando ::after 
@@ -94,6 +161,7 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
   /*Move o pseudo-elemento 10px da borda direita do botão.*/
   transition: transform 0.2s;
   /*Adiciona uma animação suave quando a propriedade transform mudar.*/
+  color: #6c6b6b;
 }
 
 /* Quando estiver ativo, rotaciona a seta para baixo */
@@ -101,14 +169,49 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
   transform: rotate(90deg);
   /*Quando o botão tem a classe ativo,
     o pseudo-elemento (::after) gira 90°*/
+  color: #323131;
 }
 
 .filtros dd {
-  margin: 0;
   /* Remove qualquer espaço externo do <dd> */
   padding: 8px 16px;
   /* Espaço interno: 8px em cima/baixo e 16px nas laterais */
-  background-color: #f9f9f9;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+}
+
+.filtros .opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filtros label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 5px;
+  /*evita que o texto quebre em outra linha */
+}
+
+.filtros label:hover {
+  background-color: #e6f0ff;
+}
+
+.filtros input[type="checkbox"] {
+  accent-color: #007bff;
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 500px) {
+  .filtros {
+    width: 100%;
+  }
 }
 
 .opcoes {
@@ -120,6 +223,7 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
   display: grid;
   grid-area: main;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 520px;
   /*Cada card ocupa no mínimo 250px. Se houver espaço,mais colunas são adicionadas automaticamente. 1fr (uma fração) faz os cards crescerem igualmente para preencher a linha.*/
   gap: 1.5rem;
   /*espaço entre cards*/
@@ -129,12 +233,121 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
 .cardProduto {
   display: flex;
   flex-direction: column;
-  background-color: #c4c4c5;
-  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 8px;
   overflow: hidden;
+  gap: 12px;
+  padding: 18px;
+  cursor: pointer;
+}
+
+.cardProduto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .imagemProd {
-  width: 500;
-  height: 600;
+  width: 100%;
+  height: auto;
+  /* mantém proporção */
+  border-radius: 8px;
+  display: block;
+  /*Ocupa toda a largura da linha, por padrõa a img é inline: só ocupa o tamanho necessário para o seu conteúdo*/
+  margin: auto
+    /*Especifica 0 em cima e embaixo,
+    e auto só nas laterais (esquerda/direita). Isso garante que só seja centralizado na horizontal.*/
+  ;
+}
+
+.avaliacaoProd {
+  font-size: 16px;
+}
+
+.cardProduto p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.nomeProd {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.descricaoProd {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.3em;
+}
+
+.listaTagProd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tagProd {
+  background-color: #f0f0f0;
+  color: #555;
+  font-size: 12.5px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.precosProd {
+  display: grid;
+  gap: 4px;
+  margin-top: auto
+    /*O navegador vai empurrar o elemento o máximo que conseguir para baixo dentro do card*/
+}
+
+.precosProd .pSimples {
+  font-size: 12px;
+  color: #999;
+}
+
+.precosProd .pPreco {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e60023;
+  margin: 2px 0;
+}
+
+.precosProd .pCondPreco {
+  font-size: 12px;
+  color: #666;
+}
+
+.rodape {
+  height: 80px;
+  grid-area: footer;
+}
+
+/*Ideia é colocar aqui o que for estilizar o rodapé*/
+
+
+* {
+  margin: 0px;
+  /*Remove todas as margens padrão dos elementos (h1, p, ul, body, etc).*/
+  padding: 0px;
+  /*Remove o espaçamento interno padrão*/
+  box-sizing: border-box;
+  /*Muda como o navegador calcula largura e altura.
+  Padrão: content-box → largura = apenas o conteúdo (padding e border somam por fora). 
+  Com border-box: largura = conteúdo + padding + borda já incluídos.*/
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.visualizarBorda {
+  border: 2px solid red;
+  /*Só para ajudar a visualizar*/
 }
