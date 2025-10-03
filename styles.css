@@ -1,6 +1,6 @@
 #conteiner {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 6fr;
   /*GRID em 2 colunas a primeira ocupara 1/4 e a segunda 3/4*/
   grid-template-rows: auto 1fr auto;
   /*GRID em 3 linhas a primeira e a utima vão se ajustar automaticamente conforme os elemementos internos precisarem, e a linha central terá o restante do espaço */
@@ -15,15 +15,16 @@
   display: flex;
   /*Organiza os elemento (Logo - Busca - Carinho/Login)*/
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   /*Espaçamento entre os elementos */
   grid-area: header;
   /*Area que o cabeçalho ocupa no container pai*/
-  padding: 10px 20px;
+  padding: 0 30px;
   position: sticky;
   top: 0;
-  background-color: #d8d8d8;
+  background-color: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  gap: 10px;
   z-index: 1000;
   /*Define a “camada” do elemento,
     ou seja,
@@ -33,8 +34,9 @@
 }
 
 .logo img {
-  height: 110px;
   width: auto;
+  height: 100%;
+  max-height: 90px;
   border-radius: 4px;
 }
 
@@ -42,9 +44,8 @@
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   max-width: 600px;
-  margin: 0 20px;
   gap: 5px;
 }
 
@@ -92,19 +93,6 @@
 /* Ícones internos (Material Icons) */
 .material-icons {
   font-size: 20px;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .cabecalho {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .busca {
-    width: 100%;
-    margin: 0;
-  }
 }
 
 .navegacao {
@@ -208,12 +196,6 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
   height: 16px;
 }
 
-@media (max-width: 500px) {
-  .filtros {
-    width: 100%;
-  }
-}
-
 .opcoes {
   display: flex;
   flex-direction: column;
@@ -237,10 +219,11 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s, box-shadow 0.2s;
   border-radius: 8px;
-  overflow: hidden;
+  overflow: visible;
   gap: 12px;
   padding: 18px;
   cursor: pointer;
+  max-width: 290px;
 }
 
 .cardProduto:hover {
@@ -251,14 +234,14 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
 .imagemProd {
   width: 100%;
   height: auto;
-  /* mantém proporção */
+  max-width: 250px;
+  /* define um limite de largura */
   border-radius: 8px;
   display: block;
   /*Ocupa toda a largura da linha, por padrõa a img é inline: só ocupa o tamanho necessário para o seu conteúdo*/
-  margin: auto
-    /*Especifica 0 em cima e embaixo,
+  margin: 0 auto;
+  /*Especifica 0 em cima e embaixo,
     e auto só nas laterais (esquerda/direita). Isso garante que só seja centralizado na horizontal.*/
-  ;
 }
 
 .avaliacaoProd {
@@ -270,12 +253,13 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: fit-content;
+  /* garante altura mínima suficiente pro texto */
 }
 
 .nomeProd {
   font-weight: bold;
   font-size: 16px;
-  line-height: 1.2em;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -283,7 +267,6 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
 .descricaoProd {
   font-size: 14px;
   color: #666;
-  line-height: 1.3em;
 }
 
 .listaTagProd {
@@ -315,7 +298,7 @@ sem precisar colocar HTML extra. Serve para colocar ícones, setas,textos adicio
 .precosProd .pPreco {
   font-size: 18px;
   font-weight: bold;
-  color: #e60023;
+  color: #3360d3;
   margin: 2px 0;
 }
 
@@ -351,3 +334,34 @@ body {
   border: 2px solid red;
   /*Só para ajudar a visualizar*/
 }
+
+
+/* Celular*/
+@media (max-width: 600px) {
+  #conteiner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  }
+
+  .navegacao {
+    display: none;
+  }
+
+  .cabecalho {
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  .buscaInput {
+    display: none;
+  }
+}
+
+/* Tablet*/
+@media (max-width: 1024px) {}
+
+/* Desktop*/
+@media (max-width: 1440px) {}
